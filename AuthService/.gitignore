@@ -1,0 +1,6 @@
+venv/
+Infrastructure/__pycache__/
+Domain/__pycache__/
+Application/__pycache__/
+*.pyc
+instance/auth.db
