@@ -1,6 +1,6 @@
 ### Registrar estudiante
 ```
-curl -X POST http://localhost:5000/api/register \
+curl -X POST http://localhost:5001/api/register \
   -H "Content-Type: application/json" \
   -d '{
     "email": "estudiante@correo.com",
@@ -12,7 +12,7 @@ curl -X POST http://localhost:5000/api/register \
 
 ### Registrar Docente
 ```
-curl -X POST http://localhost:5000/api/register \
+curl -X POST http://localhost:5001/api/register \
   -H "Content-Type: application/json" \
   -d '{
     "email": "profesor@correo.com",
