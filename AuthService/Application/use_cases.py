@@ -41,3 +41,7 @@ class AuthService:
         if isinstance(token, bytes):
             token = token.decode('utf-8')
         return token
+
+    def get_user(self, user_id: str):
+        """Obtiene un usuario por su ID"""
+        return self.repo.find_by_id(user_id)

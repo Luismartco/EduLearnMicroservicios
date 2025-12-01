@@ -42,3 +42,7 @@ class UserRepository:
     def find_by_email(self, email: str):
         um = UserModel.query.filter_by(email=email).first()
         return um.to_entity() if um else None
+
+    def find_by_id(self, user_id: str):
+        um = UserModel.query.get(user_id)
+        return um.to_entity() if um else None

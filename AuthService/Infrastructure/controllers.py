@@ -38,3 +38,16 @@ def login():
         return jsonify({'token': token}), 200
     except InvalidCredentials as e:
         return jsonify({'error': str(e)}), 401
+
+@bp.route('/users/<user_id>', methods=['GET'])
+def get_user(user_id):
+    global repo, service
+    user = service.get_user(user_id)
+    if not user:
+        return jsonify({'error': 'User not found'}), 404
+    return jsonify({
+        'id': user.id,
+        'email': user.email,
+        'name': user.name,
+        'role': user.role
+    }), 200
