@@ -11,20 +11,20 @@ class AuthService:
         self.repo = repo
 
     def register(self, dto):
-    Email(dto.email)
+        Email(dto.email)
 
-    if self.repo.find_by_email(dto.email):
-        raise UserAlreadyExists('User with email exists')
+        if self.repo.find_by_email(dto.email):
+            raise UserAlreadyExists('User with email exists')
 
-    user = User(
-        email=dto.email,
-        password_hash=bcrypt.hash(dto.password),
-        name=dto.name,
-        role=dto.role  # 🔥 Agregado
-    )
+        user = User(
+            email=dto.email,
+            password_hash=bcrypt.hash(dto.password),
+            name=dto.name,
+            role=dto.role  # 🔥 Agregado
+        )
 
-    self.repo.save(user)
-    return user
+        self.repo.save(user)
+        return user
 
     def login(self, dto):
         user = self.repo.find_by_email(dto.email)
