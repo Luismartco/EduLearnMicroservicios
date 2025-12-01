@@ -1,5 +1,5 @@
-from Domain.entities import Enrollment
-from Domain.exceptions import (
+from ..Domain.entities import Enrollment
+from ..Domain.exceptions import (
     EnrollmentAlreadyExists,
     CourseNotFound,
     UserNotFound,

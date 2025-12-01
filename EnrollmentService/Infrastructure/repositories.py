@@ -1,5 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
-from Domain.entities import Enrollment
+from ..Domain.entities import Enrollment
 
 db = SQLAlchemy()
 

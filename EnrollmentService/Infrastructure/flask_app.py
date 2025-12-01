@@ -1,10 +1,10 @@
 from flask import Flask
-from Infrastructure.controllers import bp
-from Infrastructure.repositories import EnrollmentRepository
-from Infrastructure.auth_client import AuthClient
-from Infrastructure.course_client import CourseClient
-from Application.use_cases import EnrollmentServiceUseCases
-from Infrastructure.config import SQLALCHEMY_DATABASE_URI
+from .controllers import bp
+from .repositories import EnrollmentRepository
+from .auth_client import AuthClient
+from .course_client import CourseClient
+from ..Application.use_cases import EnrollmentServiceUseCases
+from .config import SQLALCHEMY_DATABASE_URI
 
 def create_app():
     app = Flask(__name__)
@@ -15,7 +15,7 @@ def create_app():
     auth = AuthClient()
     course = CourseClient()
 
-    from Infrastructure import controllers
+    from . import controllers
     controllers.repo = repo
     controllers.service = EnrollmentServiceUseCases(repo, auth, course)
 

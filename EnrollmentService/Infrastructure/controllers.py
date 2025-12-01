@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
-from Application.dtos import EnrollDTO
-from Domain.exceptions import (
+from ..Application.dtos import EnrollDTO
+from ..Domain.exceptions import (
     EnrollmentAlreadyExists, UserNotFound,
     CourseNotFound, UserIsNotStudent
 )
