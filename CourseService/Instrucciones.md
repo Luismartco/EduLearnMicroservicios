@@ -1,0 +1,1 @@
+export FLASK_APP=Infrastructure.flask_app:app && flask run --port 5001```
