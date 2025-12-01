@@ -1,8 +1,8 @@
 from flask import Blueprint, request, jsonify
-from Application.dtos import CreateCourseDTO, ModuleDTO, UpdateCourseDTO
-from Application.use_cases import CourseService
-from Infrastructure.repositories import CourseRepository
-from Domain.exceptions import CourseNotFound, UnauthorizedAction
+from CourseService.Application.dtos import CreateCourseDTO, ModuleDTO, UpdateCourseDTO
+from CourseService.Application.use_cases import CourseService
+from CourseService.Infrastructure.repositories import CourseRepository
+from CourseService.Domain.exceptions import CourseNotFound, UnauthorizedAction
 
 bp = Blueprint('courses', __name__, url_prefix='/api/courses')
 

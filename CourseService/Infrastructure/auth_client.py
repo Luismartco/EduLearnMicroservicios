@@ -1,10 +1,16 @@
 import requests
+import os
 
 class AuthClient:
-    BASE_URL = "http://authservice:5000/api"  # Cambia esto según tu deploy
+    # Usar variable de entorno o localhost por defecto para desarrollo
+    BASE_URL = os.environ.get('AUTH_SERVICE_URL', 'http://localhost:5001/api')
 
     def get_user(self, user_id):
-        resp = requests.get(f"{self.BASE_URL}/users/{user_id}")
-        if resp.status_code != 200:
+        try:
+            resp = requests.get(f"{self.BASE_URL}/users/{user_id}", timeout=5)
+            if resp.status_code != 200:
+                return None
+            return resp.json()
+        except requests.exceptions.RequestException as e:
+            print(f"Error connecting to AuthService: {e}")
             return None
-        return resp.json()

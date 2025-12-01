@@ -16,7 +16,7 @@ class CourseModel(db.Model):
     updated_at = db.Column(db.DateTime, nullable=False)
 
     def to_entity(self):
-        from Domain.entities import Course, Module
+        from CourseService.Domain.entities import Course, Module
         data = json.loads(self.modules) if self.modules else []
         modules = [Module(id=m.get('id'), title=m.get('title'), content=m.get('content'), order=m.get('order')) for m in data]
         c = Course(id=self.id, title=self.title, description=self.description, instructor_id=self.instructor_id, modules=modules, published=self.published, created_at=self.created_at, updated_at=self.updated_at)
